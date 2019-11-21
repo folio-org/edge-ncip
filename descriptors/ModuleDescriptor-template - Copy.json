@@ -1,0 +1,25 @@
+{
+  "id": "${artifactId}-${version}",
+  "name": "Edge NCIP",
+    "provides": [
+    {
+      "id": "edge-circapi",
+      "version": "0.0.1",
+      "handlers": [
+        {
+          "methods": [ "*"],
+          "pathPattern": "/circapi/*"
+        }
+      ]
+    }
+  ],
+  "requires": [],
+  "permissionSets": [],
+  "launchDescriptor": {
+    "dockerImage": "${artifactId}:${version}",
+    "dockerArgs": {
+      "HostConfig": { "PortBindings": { "8081/tcp":  [{ "HostPort": "%p" }] } }
+    },
+    "dockerPull" : false
+  }
+}

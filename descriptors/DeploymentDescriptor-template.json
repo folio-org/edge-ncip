@@ -1,0 +1,7 @@
+{
+  "srvcId": "${artifactId}-${version}",
+  "nodeId": "localhost",
+  "descriptor": {
+    "exec": "java -jar -Dport=%p -Dsecure_store=Ephemeral -Dsecure_store_props=/mnt/edge-ncip/ephemeral.properties -Dokapi_url=http://localhost:9130 -Dapi_key_sources=PARAM ../${artifactId}/target/${artifactId}-fat.jar"
+  }
+}
