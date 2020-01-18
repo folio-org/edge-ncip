@@ -27,3 +27,11 @@ https://github.com/folio-org/edge-common
 ## endpoint
 
 .../circapi/*
+
+## Additional information
+
+### Issue tracker
+
+See project [EDGNCIP](https://issues.folio.org/browse/EDGNCIP)
+at the [FOLIO issue tracker](https://dev.folio.org/guidelines/issue-tracker).
+
