@@ -1,18 +1,6 @@
 {
   "id": "edge-ncip-0.0.1",
   "name": "Edge NCIP",
-    "provides": [
-    {
-      "id": "edge-ncip",
-      "version": "0.0.1",
-      "handlers": [
-        {
-          "methods": [ "*"],
-          "pathPattern": "/circapi/*"
-        }
-      ]
-    }
-  ],
   "requires": [],
   "permissionSets": [],
   "launchDescriptor": {
