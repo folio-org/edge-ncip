@@ -26,7 +26,7 @@ https://github.com/folio-org/edge-common
 
 ## endpoint
 
-.../circapi/*
+.../ncip
 
 ## Additional information
 

@@ -22,9 +22,9 @@ public class MainVerticle extends EdgeVerticle {
 	    NcipHandler ncipHandler = new NcipHandler(secureStore, ocf);
 	    Router router = Router.router(vertx);
 	    router.route().handler(BodyHandler.create());
-	    router.route(HttpMethod.POST, "/circapi/ncip").handler(ncipHandler::handle);
-	    router.route(HttpMethod.GET,"/circapi/ncipconfigcheck").handler(ncipHandler::handleConfigCheck);
-	    router.route(HttpMethod.GET, "/circapi/edge").handler(this::handleHealthCheck);
+	    router.route(HttpMethod.POST, "/ncip").handler(ncipHandler::handle);
+	    router.route(HttpMethod.GET,"/ncipconfigcheck").handler(ncipHandler::handleConfigCheck);
+	    router.route(HttpMethod.GET, "/edge").handler(this::handleHealthCheck);
 	    return router;
 	  }
 
