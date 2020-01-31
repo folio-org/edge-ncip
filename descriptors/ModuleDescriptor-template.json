@@ -1,5 +1,5 @@
 {
-  "id": "edge-ncip-0.0.1",
+  "id": "${artifactId}-${version}",
   "name": "Edge NCIP",
   "requires": [],
   "permissionSets": [],
