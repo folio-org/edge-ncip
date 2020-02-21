@@ -9,10 +9,6 @@ Version 2.0. See the file "[LICENSE](LICENSE)" for more information.
 
 Edge API for mod-ncip
 
-
-**README DRAFT** in progress...adding code and documentation to GIT
-
-
 ## Overview
 The purpose of this module is to expose mod-ncip to external applications/3rd party software.  It simply passes requests through to the NCIP module (after the API key is authenticated).  It does not contain any other functionality
 
