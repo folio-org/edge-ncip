@@ -31,3 +31,23 @@ https://github.com/folio-org/edge-common
 See project [EDGNCIP](https://issues.folio.org/browse/EDGNCIP)
 at the [FOLIO issue tracker](https://dev.folio.org/guidelines/issue-tracker).
 
+### ModuleDescriptor
+
+See the built `target/ModuleDescriptor.json` for the interfaces that this module
+requires and provides, the permissions, and the additional module metadata.
+
+### Code analysis
+
+[SonarQube analysis](https://sonarcloud.io/dashboard?id=org.folio%3Aedge-ncip).
+
+### Download and configuration
+
+The built artifacts for this module are available.
+See [configuration](https://dev.folio.org/download/artifacts) for repository access,
+and the [Docker image](https://hub.docker.com/r/folioorg/edge-ncip/).
+
+### Other documentation
+
+Other [modules](https://dev.folio.org/source-code/#server-side) are described,
+with further FOLIO Developer documentation at [dev.folio.org](https://dev.folio.org/)
+
