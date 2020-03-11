@@ -1,7 +1,17 @@
 {
   "id": "${artifactId}-${version}",
   "name": "Edge NCIP",
-  "requires": [],
+  "provides": [],
+  "requires": [
+    {
+      "id": "ncip",
+      "version": "1.0"
+    },
+    {
+      "id": "login",
+      "version": "5.0 6.0"
+    }
+  ],
   "permissionSets": [],
   "launchDescriptor": {
     "dockerImage": "${artifactId}:${version}",
