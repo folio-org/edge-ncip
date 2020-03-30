@@ -24,7 +24,7 @@ public class MainVerticle extends EdgeVerticle {
 	    router.route().handler(BodyHandler.create());
 	    router.route(HttpMethod.POST, "/ncip").handler(ncipHandler::handle);
 	    router.route(HttpMethod.GET,"/ncipconfigcheck").handler(ncipHandler::handleConfigCheck);
-	    router.route(HttpMethod.GET, "/edge").handler(this::handleHealthCheck);
+	    router.route(HttpMethod.GET, "/nciphealthcheck").handler(ncipHandler::handleHealthCheck);
 	    return router;
 	  }
 
