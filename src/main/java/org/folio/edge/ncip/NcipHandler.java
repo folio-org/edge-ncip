@@ -58,6 +58,22 @@ public class NcipHandler extends Handler {
 			        });
 		  }
 		  
+		  protected void handleHealthCheck(RoutingContext ctx) {
+			  
+			    handleCommon(ctx,
+			        new String[] {},
+			        new String[] {},
+			        (client, params) -> {
+			          logger.info("sending GET request to NcipOkapiClient - health check");
+			          ((NcipOkapiClient) client).ncipHealthCheck(
+			              ctx.getBodyAsString(),
+			              ctx.request().headers(),
+			              resp -> handleProxyResponse(ctx, resp),
+			              t -> handleProxyException(ctx, t));
+			        });
+		  }
+		  
+		  
 
 		  protected void handle(RoutingContext ctx) {
 			  

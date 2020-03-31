@@ -44,6 +44,19 @@ public class NcipOkapiClient extends OkapiClient {
 			  }
 	  
 	  
+	  public void ncipHealthCheck(String payload, MultiMap headers,
+		      Handler<HttpClientResponse> responseHandler,
+		      Handler<Throwable> exceptionHandler) {
+		      System.out.println("in send get request in the client");
+			    get(
+			        String.format("%s/nciphealthcheck", okapiURL),
+			        tenant,
+			        defaultHeaders,
+			        responseHandler,
+			        exceptionHandler);
+	}
+	  
+	  
 	  public void callNcip(String payload, MultiMap headers,
 		      Handler<HttpClientResponse> responseHandler,
 		      Handler<Throwable> exceptionHandler) {
