@@ -12,6 +12,16 @@ Edge API for mod-ncip
 ## Overview
 The purpose of this module is to expose mod-ncip to external applications/3rd party software.  It simply passes requests through to the NCIP module (after the API key is authenticated).  It does not contain any other functionality
 
+## Permissions
+Institutional users should be granted the following permissions in order to use this edge API (because these are required for the NCIP module itself):
+```
+    ncip.all
+    inventory-storage.items.collection.get
+    ui-circulation.settings.overdue-fines-policies
+    ui-circulation.settings.lost-item-fees-policies
+    
+```
+
 ## Security & Configuration
 The edge-ncip module is secured via the functionality provided by the edge-common project (via API key).  
 
