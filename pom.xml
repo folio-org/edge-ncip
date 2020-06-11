@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.folio</groupId>
 	<artifactId>edge-ncip</artifactId>
-	<version>1.3.0</version>
+	<version>1.4.0-SNAPSHOT</version>
 	<name>Edge API - NCIP</name>
 	<description>NCIP responder for FOLIO (edge module)</description>
 	<licenses>
@@ -98,7 +98,7 @@
 		<url>https://github.com/folio-org/edge-ncip</url>
 		<connection>scm:git:git://github.com/folio-org/edge-ncip</connection>
 		<developerConnection>scm:git:git@github.com:folio-org/edge-ncip.git</developerConnection>
-		<tag>V1.3.0</tag>
+		<tag>HEAD</tag>
 	</scm>
 
 	<build>
