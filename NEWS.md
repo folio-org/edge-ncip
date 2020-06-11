@@ -1,3 +1,5 @@
+## 1.4.0 2020-06-11
+ * No changes (versioning correction)
 ## 1.3.0 2020-06-11
  * Add 7.0 as acceptable login interface version
 ## 1.2.0 2020-04-01
