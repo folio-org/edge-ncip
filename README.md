@@ -19,6 +19,7 @@ Institutional users should be granted the following permissions in order to use 
     inventory-storage.items.collection.get
     ui-circulation.settings.overdue-fines-policies
     ui-circulation.settings.lost-item-fees-policies
+    automated-patron-blocks.collection.get
     
 ```
 
