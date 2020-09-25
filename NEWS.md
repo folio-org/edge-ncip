@@ -1,3 +1,5 @@
+## 1.4.1 2020-09-25
+ * Adding endpoint with the apiKey as part of the path
 ## 1.4.0 2020-06-11
  * No changes (versioning correction)
 ## 1.3.0 2020-06-11
