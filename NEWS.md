@@ -1,4 +1,6 @@
-## 1.4.1 2020-09-25
+## 1.6.0 2020-10-01
+ * Upgrade to openJdk11
+## 1.5.0 2020-09-25
  * Adding endpoint with the apiKey as part of the path
 ## 1.4.0 2020-06-11
  * No changes (versioning correction)
