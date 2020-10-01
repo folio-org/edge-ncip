@@ -1,5 +1,5 @@
 ## 1.6.0 2020-10-01
- * Upgrade to openJdk11
+ * [EDGNCIP-4](https://issues.folio.org/browse/EDGNCIP-4) Upgrade to openJdk11
 ## 1.5.0 2020-09-25
  * Adding endpoint with the apiKey as part of the path
 ## 1.4.0 2020-06-11
@@ -10,3 +10,6 @@
  * Endpoint /admin/health added
 ## 1.0.0 2020-03-13
  * Initial release
+
+
+https://issues.folio.org/projects/EDGNCIP/issues/EDGNCIP-4?filter=allopenissues
