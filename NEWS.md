@@ -10,6 +10,3 @@
  * Endpoint /admin/health added
 ## 1.0.0 2020-03-13
  * Initial release
-
-
-https://issues.folio.org/projects/EDGNCIP/issues/EDGNCIP-4?filter=allopenissues
