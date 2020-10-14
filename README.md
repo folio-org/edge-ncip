@@ -31,9 +31,10 @@ The configuration for this module conforms to the edge-common project.
 
 https://github.com/folio-org/edge-common
 
-## endpoint
+## endpoints (you can use either)
 
-.../ncip
+.../ncip/yourapikeygoeshere <br>
+.../ncip?apikey=yourapikeygoeshere
 
 ## Additional information
 
