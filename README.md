@@ -23,6 +23,7 @@ Institutional users should be granted the following permissions in order to use 
     circulation-storage.circulation-rules.get
     
 ```
+### IMPORTANT NOTE ABOUT INSTITUTIONAL USER - It has to be assigned a patron group.  There is an issue with create item which requires the user to be assigned a patron group.
 
 ## Security & Configuration
 The edge-ncip module is secured via the functionality provided by the edge-common project (via API key).  
