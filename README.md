@@ -21,6 +21,7 @@ Institutional users should be granted the following permissions in order to use 
     ui-circulation.settings.lost-item-fees-policies
     automated-patron-blocks.collection.get
     circulation-storage.circulation-rules.get
+    manualblocks.collection.get
     
 ```
 ### IMPORTANT NOTE ABOUT INSTITUTIONAL USER - It has to be assigned a patron group.  There is an issue with create item which requires the user to be assigned a patron group.
