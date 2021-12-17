@@ -1,3 +1,5 @@
+## 1.6.1 2021-12-17
+ * [EDGNCIP-6](https://issues.folio.org/browse/EDGNCIP-6) Log4j vulnerability verification and correction
 ## 1.6.0 2020-10-01
  * [EDGNCIP-4](https://issues.folio.org/browse/EDGNCIP-4) Upgrade to openJdk11
 ## 1.5.0 2020-09-25
