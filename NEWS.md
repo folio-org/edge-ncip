@@ -1,3 +1,5 @@
+## 1.6.2 2021-12-22
+ * [EDGNCIP-9](https://issues.folio.org/browse/EDGNCIP-9) Log4j edge- modules 2.17.0 upgrade
 ## 1.6.1 2021-12-17
  * [EDGNCIP-6](https://issues.folio.org/browse/EDGNCIP-6) Log4j vulnerability verification and correction
 ## 1.6.0 2020-10-01
