@@ -1,3 +1,5 @@
+## 1.7.0 2022-02-25
+ * Bump log4j-api from 2.17.0 to 2.17.1
 ## 1.6.2 2021-12-22
  * [EDGNCIP-9](https://issues.folio.org/browse/EDGNCIP-9) Log4j edge- modules 2.17.0 upgrade
 ## 1.6.1 2021-12-17
