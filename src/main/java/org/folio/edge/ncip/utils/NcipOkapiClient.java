@@ -9,6 +9,7 @@ import io.vertx.core.Vertx;
 
 
 
+
 public class NcipOkapiClient extends OkapiClient {
 	
 	  	
@@ -20,13 +21,7 @@ public class NcipOkapiClient extends OkapiClient {
 	    super(client);
 	  }
 
-	  @Override
-	  protected void initDefaultHeaders() {
-	    super.initDefaultHeaders();
-	    defaultHeaders.set(HttpHeaders.ACCEPT, XML_OR_TEXT);
-	    defaultHeaders.set(HttpHeaders.CONTENT_TYPE, "application/xml"); 
-	
-	  }
+
 	  
 	  
 	  public void ncipConfigCheck(String payload, MultiMap headers,
