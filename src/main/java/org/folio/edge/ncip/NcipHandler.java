@@ -7,7 +7,8 @@ import static org.folio.edge.core.Constants.MSG_INTERNAL_SERVER_ERROR;
 
 import java.util.Map;
 import java.util.concurrent.TimeoutException;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.folio.edge.core.Handler;
 import org.folio.edge.core.security.SecureStore;
 import org.folio.edge.ncip.utils.NcipOkapiClient;
@@ -25,7 +26,8 @@ import io.vertx.ext.web.RoutingContext;
 public class NcipHandler extends Handler {
 	
 
-		  private static final Logger logger = Logger.getLogger(NcipHandler.class);
+
+		  private static final Logger logger = LogManager.getLogger(NcipHandler.class);
 		  
 		  
 		  public NcipHandler(SecureStore secureStore, NcipOkapiClientFactory ocf) {

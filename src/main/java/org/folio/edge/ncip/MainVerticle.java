@@ -1,24 +1,32 @@
 package org.folio.edge.ncip;
 
-import org.folio.edge.core.EdgeVerticle;
+import org.folio.edge.core.EdgeVerticleHttp;
 import org.folio.edge.ncip.utils.NcipOkapiClientFactory;
-import org.apache.log4j.Logger;
 import io.vertx.ext.web.Router;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.ext.web.handler.BodyHandler;
+import static org.folio.edge.core.Constants.SYS_OKAPI_URL;
+import static org.folio.edge.core.Constants.SYS_REQUEST_TIMEOUT_MS;
 
 
-public class MainVerticle extends EdgeVerticle {
+public class MainVerticle extends EdgeVerticleHttp {
 	
-	  private static final Logger logger = Logger.getLogger(MainVerticle.class);
+	  final private String okapiUrl = System.getProperty(SYS_OKAPI_URL);
+	  private int reqTimeoutMs;
+	  
 
 	  public MainVerticle() {
 	    super();
+	    if (System.getProperty(SYS_REQUEST_TIMEOUT_MS) != null) {
+	        reqTimeoutMs = Integer.parseInt(System.getProperty(SYS_REQUEST_TIMEOUT_MS));
+	      } else {
+	        reqTimeoutMs = 35000;
+	      }
 	  }
 
 	  @Override
 	  public Router defineRoutes() {
-	    NcipOkapiClientFactory ocf = new NcipOkapiClientFactory(vertx, okapiURL, reqTimeoutMs);
+	    NcipOkapiClientFactory ocf = new NcipOkapiClientFactory(vertx, okapiUrl, reqTimeoutMs);
 	    NcipHandler ncipHandler = new NcipHandler(secureStore, ocf);
 	    Router router = Router.router(vertx);
 	    router.route().handler(BodyHandler.create());
