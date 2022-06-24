@@ -1,3 +1,7 @@
+## 1.8.0 2022-06-24
+ * [EDGNCIP-14](https://issues.folio.org/browse/EDGNCIP-14) edge-ncip - Morning Glory 2022 R2 - Vert.x v3.8.0/v4 upgrade
+ * [EDGNCIP-15](https://issues.folio.org/browse/EDGNCIP-15) edge-ncip - Remove vertx-completable-future for Morning Glory (2022 R2)
+ * [EDGNCIP-16](https://issues.folio.org/browse/EDGNCIP-16) edge-common 4.3.0 fixing tenant header injection
 ## 1.7.0 2022-02-25
  * Bump log4j-api from 2.17.0 to 2.17.1
 ## 1.6.2 2021-12-22
