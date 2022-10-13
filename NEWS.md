@@ -1,3 +1,5 @@
+## 1.8.1 2022-10-11
+ * [EDGNCIP-18](https://issues.folio.org/browse/EDGNCIP-18) Vert.x 4.3.4 fixing XXE and HTTP Request Smuggling
 ## 1.8.0 2022-06-24
  * [EDGNCIP-14](https://issues.folio.org/browse/EDGNCIP-14) edge-ncip - Morning Glory 2022 R2 - Vert.x v3.8.0/v4 upgrade
  * [EDGNCIP-15](https://issues.folio.org/browse/EDGNCIP-15) edge-ncip - Remove vertx-completable-future for Morning Glory (2022 R2)
