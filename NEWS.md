@@ -1,3 +1,5 @@
+## 1.7.1 2022-10-11
+ * [EDGNCIP-18](https://issues.folio.org/browse/EDGNCIP-18) Vert.x 3.9.13 fixing XXE and HTTP Request Smuggling
 ## 1.7.0 2022-02-25
  * Bump log4j-api from 2.17.0 to 2.17.1
 ## 1.6.2 2021-12-22
