@@ -8,6 +8,7 @@ import static org.folio.edge.core.Constants.SYS_REQUEST_TIMEOUT_MS;
 import static org.folio.edge.core.Constants.SYS_SECURE_STORE_PROP_FILE;
 import static org.folio.edge.core.Constants.TEXT_PLAIN;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.mockito.Mockito.spy;
 import java.util.ArrayList;
 import java.util.List;
@@ -104,6 +105,9 @@ public class MainVerticleTest {
       .statusCode(401)
       .extract()
       .response();
+    ErrorMessage error = new ErrorMessage(resp.getStatusCode(), resp.asPrettyString());
+    logger.info(error.toXml());
+    logger.info(error.toJson());
     logger.info(resp.body().asString());
 
   }
@@ -122,6 +126,64 @@ public class MainVerticleTest {
     logger.info(resp.body().asString());
 
   }
+  
+  @Test
+  public void testNciphealthcheck(TestContext context) throws Exception {
+	    logger.info("=== Test the health check 2 endpoint ===");
+
+	    final Response resp = RestAssured
+	      .get("/nciphealthcheck?apiKey=" + apiKey)
+	      .then()
+	      .statusCode(200)
+	      .extract()
+	      .response();
+
+  }
+  
+  @Test
+  public void testConfigCheck(TestContext context) throws Exception {
+	  logger.info("=== Test ncipconfigcheck ===");
+	  final Response resp = RestAssured
+		      .get("/ncipconfigcheck?apiKey=" + apiKey)
+		      .then()
+		      .statusCode(200)
+		      .extract()
+		      .response();
+	  logger.info(resp.asPrettyString());
+  }
+  
+  @Test
+  public void testErrorMessage() {
+	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
+	  assertFalse(errorMessage.equals("ok"));
+  }
+  
+  @Test
+  public void testErrorMessagesEquality() {
+	  ErrorMessage errorMessageOrig = new ErrorMessage(500,"bad request");
+	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
+	  assertFalse(errorMessage.equals("ok"));
+	  assertFalse(errorMessage.equals(errorMessageOrig));
+  }
+  
+  @Test
+  public void testErrorCodeEquality() {
+	  ErrorMessage errorMessageOrig = new ErrorMessage(200,"bad request");
+	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
+	  assertFalse(errorMessage.equals("ok"));
+	  assertFalse(errorMessage.equals(errorMessageOrig));
+  }
+  
+  @Test
+  public void testErrorMessageEqualityWithNull() {
+	  ErrorMessage errorMessageOrig = new ErrorMessage(200,null);
+	  ErrorMessage errorMessageEasy = ErrorMessage.builder().chargeAmount("bad request").item(200).build();
+	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
+	  assertFalse(errorMessageOrig.equals(errorMessage));
+	  assertFalse(errorMessage.equals("ok"));
+	  assertFalse(errorMessage.equals(errorMessageOrig));
+  }
+  
 
 
 

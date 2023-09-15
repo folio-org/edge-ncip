@@ -2,6 +2,10 @@ package org.folio.edge.ncip;
 
 
 import static org.folio.edge.core.Constants.APPLICATION_JSON;
+import static org.folio.edge.core.Constants.APPLICATION_XML;
+import static org.folio.edge.core.Constants.MSG_INTERNAL_SERVER_ERROR;
+
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import java.util.List;
@@ -29,6 +33,8 @@ public class NcipMockOkapi extends MockOkapi{
 	    Router router = super.defineRoutes();
 	    router.route(HttpMethod.POST, "/ncip").handler(this::ncipHandler);
 	    router.route(HttpMethod.POST, "/ncip/apikey").handler(this::ncipHandler);
+	    router.route(HttpMethod.GET, "/nciphealthcheck").handler(this::ncipHealthCheck);
+	    router.route(HttpMethod.GET, "/ncipconfigcheck").handler(this::ncipconfigcheck);
 	    return router;
 	  }
 	  
@@ -37,9 +43,28 @@ public class NcipMockOkapi extends MockOkapi{
 		logger.info("called ncip handler");
 		ctx.response()
         .setStatusCode(200)
-        .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_JSON)
+        .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
         .end("ok");
 	  }
+	  
+	  public void ncipHealthCheck(RoutingContext ctx) {
+		logger.info("called ncip health check");
+		ctx.response()
+        .setStatusCode(200)
+        .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
+        .end("ok");
+	  }
+	  
+	  public void ncipconfigcheck(RoutingContext ctx) {
+		logger.info("called ncip health check");
+		ctx.response()
+        .setStatusCode(200)
+        .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
+        .end("ok");
+	  }
+	  
+
+	    
 	    
 
 }
