@@ -56,7 +56,7 @@ public class NcipMockOkapi extends MockOkapi{
 	  }
 	  
 	  public void ncipconfigcheck(RoutingContext ctx) {
-		logger.info("called ncip health check");
+		logger.info("called ncip config check");
 		ctx.response()
         .setStatusCode(200)
         .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
