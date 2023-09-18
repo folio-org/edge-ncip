@@ -1,6 +1,7 @@
 ## 1.9.0-SNAPSHOT 2023-XX-XX
  * [EDGNCIP-23](https://issues.folio.org/browse/EDGNCIP-23) Update to Java 17 edge-ncip
  * [EDGNCIP-24](https://issues.folio.org/browse/EDGNCIP-24) update the version of edge-common to support RTR
+ * [EDGNCIP-19](https://issues.folio.org/browse/EDGNCIP-19) Unit tests
 ## 1.8.1 2022-10-11
  * [EDGNCIP-18](https://issues.folio.org/browse/EDGNCIP-18) Vert.x 4.3.4 fixing XXE and HTTP Request Smuggling
 ## 1.8.0 2022-06-24
