@@ -1,4 +1,4 @@
-## 1.9.0 2023-10-05
+## 1.9.0 2023-10-06
  * [EDGNCIP-23](https://issues.folio.org/browse/EDGNCIP-23) Update to Java 17 edge-ncip
  * [EDGNCIP-24](https://issues.folio.org/browse/EDGNCIP-24) update the version of edge-common to support RTR
  * [EDGNCIP-19](https://issues.folio.org/browse/EDGNCIP-19) Unit tests
