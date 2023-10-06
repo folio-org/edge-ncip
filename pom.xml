@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.folio</groupId>
 	<artifactId>edge-ncip</artifactId>
-	<version>1.9.0-SNAPSHOT</version>
+	<version>1.9.1-SNAPSHOT</version>
 	<name>Edge API - NCIP</name>
 	<description>NCIP responder for FOLIO (edge module)</description>
 	<licenses>
@@ -61,7 +61,7 @@
 		<dependency>
 			<groupId>org.folio</groupId>
 			<artifactId>edge-common</artifactId>
-			<version>4.5.0-SNAPSHOT</version>
+			<version>4.5.1</version>
 		</dependency>
 		<dependency>
 			<groupId>args4j</groupId>
