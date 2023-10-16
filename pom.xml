@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.folio</groupId>
 	<artifactId>edge-ncip</artifactId>
-	<version>1.9.1-SNAPSHOT</version>
+	<version>1.9.3-SNAPSHOT</version>
 	<name>Edge API - NCIP</name>
 	<description>NCIP responder for FOLIO (edge module)</description>
 	<licenses>
@@ -13,7 +13,7 @@
 		</license>
 	</licenses>
 	<properties>
-		<vertx.version>4.3.4</vertx.version>
+		<vertx.version>4.4.6</vertx.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>17</java.version>
@@ -21,22 +21,27 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>org.apache.logging.log4j</groupId>
+				<artifactId>log4j-bom</artifactId>
+				<version>2.20.0</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
 				<groupId>io.vertx</groupId>
 				<artifactId>vertx-stack-depchain</artifactId>
 				<version>${vertx.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<dependency>
-         <groupId>org.apache.logging.log4j</groupId>
-         <artifactId>log4j-bom</artifactId>
-         <version>2.17.2</version>
-         <type>pom</type>
-         <scope>import</scope>
-     		</dependency>
 		</dependencies>
 	</dependencyManagement>
 	<dependencies>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+			<version>1.16.0</version>
+		</dependency>
 		<dependency>
 			<groupId>io.vertx</groupId>
 			<artifactId>vertx-core</artifactId>
