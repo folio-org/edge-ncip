@@ -1,6 +1,0 @@
-org\folio\edge\ncip\ErrorMessage$Builder.class
-org\folio\edge\ncip\MainVerticle.class
-org\folio\edge\ncip\utils\NcipOkapiClientFactory.class
-org\folio\edge\ncip\NcipHandler.class
-org\folio\edge\ncip\ErrorMessage.class
-org\folio\edge\ncip\utils\NcipOkapiClient.class
