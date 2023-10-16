@@ -1,0 +1,7 @@
+{
+  "srvcId": "edge-ncip-1.9.1-SNAPSHOT",
+  "nodeId": "localhost",
+  "descriptor": {
+    "exec": "java -jar -Dport=%p -Dsecure_store=Ephemeral -Dsecure_store_props=/mnt/edge-ncip/ephemeral.properties -Dokapi_url=http://localhost:9130 -Dapi_key_sources=PARAM ../edge-ncip/target/edge-ncip-fat.jar"
+  }
+}
