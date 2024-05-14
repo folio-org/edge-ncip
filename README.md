@@ -31,8 +31,23 @@ The edge-ncip module is secured via the functionality provided by the edge-commo
 
 The configuration for this module conforms to the edge-common project.
 
-
 https://github.com/folio-org/edge-common
+
+### System Properties
+
+| Property               | Default       | Description                                                                                                                                |
+|------------------------|---------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| `port`                 | `8081`        | Server port to listen on                                                                                                                   |
+| `okapi_url`            | *required*    | Where to find Okapi (URL)                                                                                                                  |
+| `request_timeout_ms`   | `30000`       | Request Timeout                                                                                                                            |
+| `keystore_path`        | `NA`          | Set the path to the key store, if both `keystore_path` and `keystore_password` are populated - BCFKS security provider is used for SSL/TLS |
+| `keystore_password`    | `NA`          | Set the password for the key store                                                                                                         |
+| `key_alias`            | `NA`          | Optional identifier that points to a specific key within the key store                                                                     |
+| `log_level`            | `INFO`        | Log4j Log Level                                                                                                                            |
+| `token_cache_capacity` | `100`         | Max token cache size                                                                                                                       |
+| `token_cache_ttl_ms`   | `100`         | How long to cache JWTs, in milliseconds (ms)                                                                                               |
+| `secure_store`         | `Ephemeral`   | Type of secure store to use.  Valid: `Ephemeral`, `AwsSsm`, `Vault`                                                                        |
+| `secure_store_props`   | `NA`          | Path to a properties file specifying secure store configuration                                                                            |
 
 ## endpoints (you can use either)
 

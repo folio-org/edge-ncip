@@ -1,9 +1,7 @@
 package org.folio.edge.ncip;
 
 
-import static org.folio.edge.core.Constants.APPLICATION_JSON;
 import static org.folio.edge.core.Constants.APPLICATION_XML;
-import static org.folio.edge.core.Constants.MSG_INTERNAL_SERVER_ERROR;
 
 
 import org.apache.logging.log4j.LogManager;

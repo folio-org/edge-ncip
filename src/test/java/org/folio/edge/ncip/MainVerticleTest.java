@@ -8,10 +8,18 @@ import static org.folio.edge.core.Constants.SYS_REQUEST_TIMEOUT_MS;
 import static org.folio.edge.core.Constants.SYS_SECURE_STORE_PROP_FILE;
 import static org.folio.edge.core.Constants.TEXT_PLAIN;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.mockito.Mockito.spy;
+
 import java.util.ArrayList;
 import java.util.List;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+import io.vertx.core.DeploymentOptions;
+import io.vertx.core.Vertx;
+import io.vertx.ext.unit.TestContext;
+import io.vertx.ext.unit.junit.VertxUnitRunner;
 import org.apache.http.HttpHeaders;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,23 +30,14 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import io.restassured.RestAssured;
-import io.restassured.response.Response;
-import io.vertx.core.DeploymentOptions;
-import io.vertx.core.Vertx;
-import io.vertx.ext.unit.TestContext;
-import io.vertx.ext.unit.junit.VertxUnitRunner;
-
 
 @RunWith(VertxUnitRunner.class)
 public class MainVerticleTest {
 
   private static final Logger logger = LogManager.getLogger(MainVerticleTest.class);
 
-  protected static final String titleId = "0c8e8ac5-6bcc-461e-a8d3-4b55a96addc8";
   protected static final String apiKey = ApiKeyUtils.generateApiKey(10, "diku", "diku");
   private static final String badApiKey = apiKey + "0000";
-  private static final String unknownTenantApiKey = ApiKeyUtils.generateApiKey(10, "bogus", "diku");
 
   private static final int requestTimeoutMs = 30000;
 
@@ -155,23 +154,23 @@ public class MainVerticleTest {
   @Test
   public void testErrorMessage() {
 	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
-	  assertFalse(errorMessage.equals("ok"));
+    assertNotEquals("ok", errorMessage);
   }
   
   @Test
   public void testErrorMessagesEquality() {
 	  ErrorMessage errorMessageOrig = new ErrorMessage(500,"bad request");
 	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
-	  assertFalse(errorMessage.equals("ok"));
-	  assertFalse(errorMessage.equals(errorMessageOrig));
+    assertNotEquals("ok", errorMessage);
+    assertNotEquals(errorMessage, errorMessageOrig);
   }
   
   @Test
   public void testErrorCodeEquality() {
 	  ErrorMessage errorMessageOrig = new ErrorMessage(200,"bad request");
 	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
-	  assertFalse(errorMessage.equals("ok"));
-	  assertFalse(errorMessage.equals(errorMessageOrig));
+    assertNotEquals("ok", errorMessage);
+    assertNotEquals(errorMessage, errorMessageOrig);
   }
   
   @Test
@@ -179,13 +178,8 @@ public class MainVerticleTest {
 	  ErrorMessage errorMessageOrig = new ErrorMessage(200,null);
 	  ErrorMessage errorMessageEasy = ErrorMessage.builder().chargeAmount("bad request").item(200).build();
 	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
-	  assertFalse(errorMessageOrig.equals(errorMessage));
-	  assertFalse(errorMessage.equals("ok"));
-	  assertFalse(errorMessage.equals(errorMessageOrig));
+    assertNotEquals(errorMessageOrig, errorMessage);
+    assertNotEquals("ok", errorMessage);
+    assertNotEquals(errorMessage, errorMessageOrig);
   }
-  
-
-
-
- 
 }
