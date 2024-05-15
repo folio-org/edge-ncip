@@ -60,9 +60,4 @@ public class NcipMockOkapi extends MockOkapi{
         .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
         .end("ok");
 	  }
-	  
-
-	    
-	    
-
 }
