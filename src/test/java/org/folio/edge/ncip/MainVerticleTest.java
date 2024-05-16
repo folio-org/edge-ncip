@@ -79,7 +79,7 @@ public class MainVerticleTest {
 
 
   @Test
-  public void testAdminHealthShouldSucceed(TestContext context) {
+  public void testAdminHealthShouldSucceed() {
     logger.info("=== Test the health check endpoint ===");
 
     final Response resp = RestAssured
@@ -95,7 +95,7 @@ public class MainVerticleTest {
   }
   
   @Test
-  public void failsWhenBadApiKeyProvided(TestContext context) throws Exception {
+  public void failsWhenBadApiKeyProvided() throws Exception {
     logger.info("=== Test request with malformed apiKey ===");
 
     final Response resp = RestAssured
@@ -112,7 +112,7 @@ public class MainVerticleTest {
   }
   
   @Test
-  public void successWithGoodKey(TestContext context) throws Exception {
+  public void successWithGoodKey() {
     logger.info("=== Test request with good apiKey ===");
 
     final Response resp = RestAssured
@@ -127,7 +127,7 @@ public class MainVerticleTest {
   }
   
   @Test
-  public void testNciphealthcheck(TestContext context) throws Exception {
+  public void testNciphealthcheck() {
 	    logger.info("=== Test the health check 2 endpoint ===");
 
 	    final Response resp = RestAssured
@@ -140,7 +140,7 @@ public class MainVerticleTest {
   }
   
   @Test
-  public void testConfigCheck(TestContext context) throws Exception {
+  public void testConfigCheck() {
 	  logger.info("=== Test ncipconfigcheck ===");
 	  final Response resp = RestAssured
 		      .get("/ncipconfigcheck?apiKey=" + apiKey)
@@ -164,7 +164,7 @@ public class MainVerticleTest {
     assertNotEquals("ok", errorMessage);
     assertNotEquals(errorMessage, errorMessageOrig);
   }
-  
+
   @Test
   public void testErrorCodeEquality() {
 	  ErrorMessage errorMessageOrig = new ErrorMessage(200,"bad request");
