@@ -70,7 +70,6 @@ public class NcipHandler extends Handler {
         });
   }
 
-
   protected void handle(RoutingContext ctx) {
 
     handleCommon(ctx,
