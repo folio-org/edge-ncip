@@ -42,6 +42,7 @@ public class MainVerticleTest {
 
   private static Vertx vertx;
   protected static NcipMockOkapi mockOkapi;
+  private NcipHandler ncipHandler;
 
   @BeforeClass
   public static void setUpOnce(TestContext context) throws Exception {
@@ -147,7 +148,7 @@ public class MainVerticleTest {
 		      .response();
 	  logger.info(resp.asPrettyString());
   }
-  
+
   @Test
   public void testErrorMessage() {
 	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");

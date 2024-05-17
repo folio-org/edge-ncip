@@ -67,51 +67,52 @@ public class NcipHandler extends Handler {
         });
   }
 
-  protected void handle(RoutingContext ctx) {
+		  protected void handle(RoutingContext ctx) {
 
-    handleCommon(ctx,
-        new String[]{},
-        new String[]{},
-        (client, params) -> {
-          logger.info("sending POST request to NcipOkapiClient");
-          ((NcipOkapiClient) client).callNcip(
-              ctx.getBodyAsString(),
-              ctx.request().headers(),
-              resp -> handleProxyResponse(ctx, resp),
-              t -> handleProxyException(ctx, t));
-        });
-  }
+			    handleCommon(ctx,
+			        new String[] {},
+			        new String[] {},
+			        (client, params) -> {
+			          logger.info("sending POST request to NcipOkapiClient");
+			          ((NcipOkapiClient) client).callNcip(
+			              ctx.getBodyAsString(),
+			              ctx.request().headers(),
+			              resp -> handleProxyResponse(ctx, resp),
+			              t -> handleProxyException(ctx, t));
+			        });
+		  }
 
-  @Override
-  protected void handleProxyException(RoutingContext ctx, Throwable t) {
-    logger.error("Exception calling OKAPI", t);
-    if (t instanceof TimeoutException) {
-      requestTimeout(ctx, t.getMessage());
-    } else {
-      internalServerError(ctx, t.getMessage());
-    }
-  }
+		  @Override
+		  protected void handleProxyException(RoutingContext ctx, Throwable t) {
+		    logger.error("Exception calling OKAPI", t);
+		    if (t instanceof TimeoutException) {
+		      requestTimeout(ctx, t.getMessage());
+		    } else {
+		      internalServerError(ctx, t.getMessage());
+		    }
+		  }
 
-  @Override
-  protected void internalServerError(RoutingContext ctx, String msg) {
-    if (!ctx.response().ended()) {
-      ctx.response()
-          .setStatusCode(500)
-          .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_JSON)
-          .end(getStructuredErrorMessage(500, MSG_INTERNAL_SERVER_ERROR));
-    }
-  }
+		  @Override
+		  protected void internalServerError(RoutingContext ctx, String msg) {
+		    if (!ctx.response().ended()) {
+		      ctx.response()
+		        .setStatusCode(500)
+		        .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_JSON)
+		        .end(getStructuredErrorMessage(500, MSG_INTERNAL_SERVER_ERROR));
+		    }
+		  }
 
-  private String getStructuredErrorMessage(int statusCode, String message) {
-    String finalMsg;
-    try {
-      ErrorMessage error = new ErrorMessage(statusCode, message);
-      finalMsg = error.toJson();
-    } catch (JsonProcessingException ex) {
-      finalMsg = "{ code : \"\", message : \"" + message + "\" }";
-    }
-    return finalMsg;
-  }
+		  private String getStructuredErrorMessage(int statusCode, String message){
+			    String finalMsg;
+			    try{
+			      ErrorMessage error = new ErrorMessage(statusCode, message);
+			      finalMsg = error.toJson();
+			    }
+			    catch(JsonProcessingException ex){
+			      finalMsg = "{ code : \"\", message : \"" + message + "\" }";
+			    }
+			    return finalMsg;
+		}
 
 }
 		

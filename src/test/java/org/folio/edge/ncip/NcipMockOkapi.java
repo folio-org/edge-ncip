@@ -1,6 +1,5 @@
 package org.folio.edge.ncip;
 
-
 import static org.folio.edge.core.Constants.APPLICATION_XML;
 
 import java.util.List;
@@ -27,9 +26,9 @@ public class NcipMockOkapi extends MockOkapi {
   public Router defineRoutes() {
     Router router = super.defineRoutes();
     router.route(HttpMethod.POST, "/ncip").handler(this::ncipHandler);
+    router.route(HttpMethod.POST, "/ncip/apikey").handler(this::ncipHandler);
     router.route(HttpMethod.GET, "/nciphealthcheck").handler(this::ncipHealthCheck);
     router.route(HttpMethod.GET, "/ncipconfigcheck").handler(this::ncipconfigcheck);
-		router.route(HttpMethod.POST, "/ncip").handler(this::ncipInternalServierError);
     return router;
   }
 
@@ -57,13 +56,4 @@ public class NcipMockOkapi extends MockOkapi {
         .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
         .end("ok");
   }
-
-	public void ncipInternalServierError(RoutingContext ctx) {
-		logger.info("throw internal server error");
-		ctx.response()
-				.setStatusCode(500)
-				.putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
-				.end("internal server error");
-	}
-
 }
