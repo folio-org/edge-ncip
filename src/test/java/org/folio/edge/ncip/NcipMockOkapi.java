@@ -14,47 +14,56 @@ import org.apache.logging.log4j.Logger;
 import org.folio.edge.core.utils.test.MockOkapi;
 
 
-public class NcipMockOkapi extends MockOkapi{
-	
-	  private static final Logger logger = LogManager.getLogger(NcipMockOkapi.class);
-	
-	  public NcipMockOkapi(int port, List<String> knownTenants) {
-		    super(port, knownTenants);
-	  }
-	  
-	  
-	  @Override
-	  public Router defineRoutes() {
-	    Router router = super.defineRoutes();
-	    router.route(HttpMethod.POST, "/ncip").handler(this::ncipHandler);
-	    router.route(HttpMethod.POST, "/ncip/apikey").handler(this::ncipHandler);
-	    router.route(HttpMethod.GET, "/nciphealthcheck").handler(this::ncipHealthCheck);
-	    router.route(HttpMethod.GET, "/ncipconfigcheck").handler(this::ncipconfigcheck);
-	    return router;
-	  }
-	  
-	  
-	  public void ncipHandler(RoutingContext ctx) {
-		logger.info("called ncip handler");
-		ctx.response()
+public class NcipMockOkapi extends MockOkapi {
+
+  private static final Logger logger = LogManager.getLogger(NcipMockOkapi.class);
+
+  public NcipMockOkapi(int port, List<String> knownTenants) {
+    super(port, knownTenants);
+  }
+
+
+  @Override
+  public Router defineRoutes() {
+    Router router = super.defineRoutes();
+    router.route(HttpMethod.POST, "/ncip").handler(this::ncipHandler);
+    router.route(HttpMethod.GET, "/nciphealthcheck").handler(this::ncipHealthCheck);
+    router.route(HttpMethod.GET, "/ncipconfigcheck").handler(this::ncipconfigcheck);
+		router.route(HttpMethod.POST, "/ncip").handler(this::ncipInternalServierError);
+    return router;
+  }
+
+
+  public void ncipHandler(RoutingContext ctx) {
+    logger.info("called ncip handler");
+    ctx.response()
         .setStatusCode(200)
         .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
         .end("ok");
-	  }
-	  
-	  public void ncipHealthCheck(RoutingContext ctx) {
-		logger.info("called ncip health check");
-		ctx.response()
+  }
+
+  public void ncipHealthCheck(RoutingContext ctx) {
+    logger.info("called ncip health check");
+    ctx.response()
         .setStatusCode(200)
         .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
         .end("ok");
-	  }
-	  
-	  public void ncipconfigcheck(RoutingContext ctx) {
-		logger.info("called ncip config check");
-		ctx.response()
+  }
+
+  public void ncipconfigcheck(RoutingContext ctx) {
+    logger.info("called ncip config check");
+    ctx.response()
         .setStatusCode(200)
         .putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
         .end("ok");
-	  }
+  }
+
+	public void ncipInternalServierError(RoutingContext ctx) {
+		logger.info("throw internal server error");
+		ctx.response()
+				.setStatusCode(500)
+				.putHeader(HttpHeaders.CONTENT_TYPE, APPLICATION_XML)
+				.end("internal server error");
+	}
+
 }

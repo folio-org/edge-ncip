@@ -108,7 +108,6 @@ public class MainVerticleTest {
     logger.info(error.toXml());
     logger.info(error.toJson());
     logger.info(resp.body().asString());
-
   }
   
   @Test
@@ -124,7 +123,7 @@ public class MainVerticleTest {
       .response();
     logger.info(resp.body().asString());
   }
-  
+
   @Test
   public void testNciphealthcheck() {
 	    logger.info("=== Test the health check 2 endpoint ===");
@@ -136,7 +135,7 @@ public class MainVerticleTest {
 	      .extract()
 	      .response();
   }
-  
+
   @Test
   public void testConfigCheck() {
 	  logger.info("=== Test ncipconfigcheck ===");
