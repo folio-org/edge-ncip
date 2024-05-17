@@ -123,7 +123,6 @@ public class MainVerticleTest {
       .extract()
       .response();
     logger.info(resp.body().asString());
-
   }
   
   @Test
@@ -136,7 +135,6 @@ public class MainVerticleTest {
 	      .statusCode(200)
 	      .extract()
 	      .response();
-
   }
   
   @Test
@@ -154,14 +152,14 @@ public class MainVerticleTest {
   @Test
   public void testErrorMessage() {
 	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
-    assertNotEquals("ok", errorMessage);
+    assertEquals("ok", errorMessage.message);
   }
   
   @Test
   public void testErrorMessagesEquality() {
 	  ErrorMessage errorMessageOrig = new ErrorMessage(500,"bad request");
 	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
-    assertNotEquals("ok", errorMessage);
+    assertEquals("ok", errorMessage.message);
     assertNotEquals(errorMessage, errorMessageOrig);
   }
 
@@ -169,7 +167,7 @@ public class MainVerticleTest {
   public void testErrorCodeEquality() {
 	  ErrorMessage errorMessageOrig = new ErrorMessage(200,"bad request");
 	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
-    assertNotEquals("ok", errorMessage);
+    assertEquals("ok", errorMessage.message);
     assertNotEquals(errorMessage, errorMessageOrig);
   }
   
@@ -178,8 +176,8 @@ public class MainVerticleTest {
 	  ErrorMessage errorMessageOrig = new ErrorMessage(200,null);
 	  ErrorMessage errorMessageEasy = ErrorMessage.builder().chargeAmount("bad request").item(200).build();
 	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
-    assertNotEquals(errorMessageOrig, errorMessage);
-    assertNotEquals("ok", errorMessage);
+    assertNotEquals(errorMessageEasy, errorMessage);
+    assertEquals("ok", errorMessage.message);
     assertNotEquals(errorMessage, errorMessageOrig);
   }
 }

@@ -6,20 +6,17 @@ import static org.folio.edge.core.Constants.MSG_INTERNAL_SERVER_ERROR;
 import java.util.Map;
 import java.util.concurrent.TimeoutException;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+
+import io.vertx.core.http.HttpHeaders;
+import io.vertx.ext.web.RoutingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.folio.edge.core.Handler;
 import org.folio.edge.core.security.SecureStore;
+import org.folio.edge.core.utils.OkapiClient;
 import org.folio.edge.core.utils.OkapiClientFactory;
 import org.folio.edge.ncip.utils.NcipOkapiClient;
-import org.folio.edge.core.utils.OkapiClient;
-
-import com.fasterxml.jackson.core.JsonProcessingException;
-
-import io.vertx.core.http.HttpClientResponse;
-import io.vertx.core.http.HttpHeaders;
-import io.vertx.core.http.HttpServerResponse;
-import io.vertx.ext.web.RoutingContext;
 
 public class NcipHandler extends Handler {
 
@@ -114,32 +111,6 @@ public class NcipHandler extends Handler {
       finalMsg = "{ code : \"\", message : \"" + message + "\" }";
     }
     return finalMsg;
-  }
-
-  protected void handleProxyResponse(RoutingContext ctx, HttpClientResponse resp) {
-
-    HttpServerResponse serverResponse = ctx.response();
-
-    final StringBuilder body = new StringBuilder();
-    resp.handler(body::append).endHandler(v -> {
-
-      int statusCode = resp.statusCode();
-      serverResponse.setStatusCode(statusCode);
-
-      String respBody = body.toString();
-
-      String contentType = resp.getHeader(HttpHeaders.CONTENT_TYPE);
-      setContentType(serverResponse, contentType);
-      serverResponse.end(respBody);
-
-    });
-  }
-
-
-  private void setContentType(HttpServerResponse response, String contentType) {
-    if (contentType != null && !contentType.isEmpty()) {
-      response.putHeader(HttpHeaders.CONTENT_TYPE, contentType);
-    }
   }
 
 }
