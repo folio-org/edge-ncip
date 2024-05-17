@@ -8,7 +8,7 @@ import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import java.security.Security;
 
 public class NcipLauncher extends Launcher {
-  private static final Logger logger = LogManager.getLogger();
+  private static final Logger logger = LogManager.getLogger(NcipLauncher.class);
 
   public static void main(String[] args) {
     Security.addProvider(new BouncyCastleFipsProvider());
