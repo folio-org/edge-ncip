@@ -1,13 +1,10 @@
 package org.folio.edge.ncip;
 
-import java.security.Security;
-
 import io.vertx.core.http.HttpMethod;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.BodyHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.bouncycastle.jcajce.provider.BouncyCastleFipsProvider;
 import org.folio.edge.core.EdgeVerticleHttp;
 import org.folio.edge.core.utils.OkapiClientFactory;
 import org.folio.edge.ncip.utils.NcipOkapiClientFactory;
@@ -17,7 +14,6 @@ public class MainVerticle extends EdgeVerticleHttp {
 
   @Override
   public Router defineRoutes() {
-    Security.addProvider(new BouncyCastleFipsProvider());
     logger.info("BouncyCastleFipsProvider has been added");
     OkapiClientFactory ocf = NcipOkapiClientFactory.createInstance(vertx, config());
     NcipHandler ncipHandler = new NcipHandler(secureStore, ocf);
