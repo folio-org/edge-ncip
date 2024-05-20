@@ -26,12 +26,11 @@ Institutional users should be granted the following permissions in order to use 
 ```
 ### IMPORTANT NOTE ABOUT INSTITUTIONAL USER - It has to be assigned a patron group.  There is an issue with create item which requires the user to be assigned a patron group.
 
-## Security & Configuration
-The edge-ncip module is secured via the functionality provided by the edge-common project (via API key).  
+## Security Configuration
 
-The configuration for this module conforms to the edge-common project.
-
-https://github.com/folio-org/edge-common
+Configuration information is specified in two forms:
+1. System Properties - General configuration
+2. Properties File - Configuration specific to the desired secure store
 
 ### System Properties
 
@@ -76,7 +75,6 @@ If truststore parameters need to be populated, truststore_type, truststore_path 
 | `web-client.truststore_password`  | `NA`              | Set the password for the keystore                                                |
 | `web-client.key_alias`            | `NA`              | Set the alias of the key within the keystore.                                    |
 | `web-client.key_alias_password`   | `NA`              | Optional param that points to a password of `key_alias` if it protected          |
-
 
 ## Additional information
 
