@@ -17,11 +17,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>17</java.version>
-
-		<!--Dependency Properties-->
-		<bc-fips.version>1.0.2.5</bc-fips.version>
-		<bcpkix-fips.version>1.0.7</bcpkix-fips.version>
-		<bctls-fips.version>1.0.19</bctls-fips.version>
 	</properties>
 	<dependencyManagement>
 		<dependencies>
@@ -117,27 +112,6 @@
 			<artifactId>xml-path</artifactId>
 			<version>2.9.0</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.14.0</version>
-		</dependency>
-		<!-- Library provides the basic cryptographic functionality complying with FIPS -->
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bc-fips</artifactId>
-			<version>${bc-fips.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcpkix-fips</artifactId>
-			<version>${bcpkix-fips.version}</version>
-		</dependency>
-		<dependency>
-			<groupId>org.bouncycastle</groupId>
-			<artifactId>bctls-fips</artifactId>
-			<version>${bctls-fips.version}</version>
 		</dependency>
 	</dependencies>
 	<repositories>
@@ -239,7 +213,6 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-shade-plugin</artifactId>
 				<version>2.4</version>
-
 				<executions>
 					<execution>
 						<phase>package</phase>
@@ -247,32 +220,17 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
-							<artifactSet>
-								<excludes>
-									<exclude>org.bouncycastle:bcprov-jdk18on</exclude>
-								</excludes>
-							</artifactSet>
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<manifestEntries>
 										<addClasspath>true</addClasspath>
-										<Main-Class>org.folio.edge.ncip.NcipLauncher</Main-Class>
+										<Main-Class>io.vertx.core.Launcher</Main-Class>
 										<Main-Verticle>org.folio.edge.ncip.MainVerticle</Main-Verticle>
 									</manifestEntries>
 								</transformer>
 							</transformers>
 							<artifactSet />
 							<outputFile>${project.build.directory}/${project.artifactId}-fat.jar</outputFile>
-							<filters>
-								<filter>
-									<artifact>*:*</artifact>
-									<excludes>
-										<exclude>META-INF/*.SF</exclude>
-										<exclude>META-INF/*.DSA</exclude>
-										<exclude>META-INF/*.RSA</exclude>
-									</excludes>
-								</filter>
-							</filters>
 						</configuration>
 					</execution>
 				</executions>

@@ -5,7 +5,6 @@ import static org.folio.edge.core.Constants.SYS_OKAPI_URL;
 import static org.folio.edge.core.Constants.SYS_PORT;
 import static org.folio.edge.core.Constants.SYS_REQUEST_TIMEOUT_MS;
 import static org.folio.edge.core.Constants.SYS_SECURE_STORE_PROP_FILE;
-import static org.folio.edge.core.Constants.SYS_SSL_ENABLED;
 import static org.folio.edge.core.Constants.TEXT_PLAIN;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -62,7 +61,6 @@ public class MainVerticleTest {
     System.setProperty(SYS_SECURE_STORE_PROP_FILE, "src/main/resources/ephemeral.properties");
     System.setProperty(SYS_LOG_LEVEL, "DEBUG");
     System.setProperty(SYS_REQUEST_TIMEOUT_MS, String.valueOf(requestTimeoutMs));
-    System.setProperty(SYS_SSL_ENABLED, String.valueOf(requestTimeoutMs));
 
     final DeploymentOptions opt = new DeploymentOptions();
     vertx.deployVerticle(MainVerticle.class.getName(), opt, context.asyncAssertSuccess());

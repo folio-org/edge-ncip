@@ -5,13 +5,13 @@ import io.vertx.ext.web.Router;
 import io.vertx.ext.web.handler.BodyHandler;
 import org.folio.edge.core.EdgeVerticleHttp;
 import org.folio.edge.core.utils.OkapiClientFactory;
-import org.folio.edge.ncip.utils.NcipOkapiClientFactory;
+import org.folio.edge.core.utils.OkapiClientFactoryInitializer;
 
 public class MainVerticle extends EdgeVerticleHttp {
 
   @Override
   public Router defineRoutes() {
-    OkapiClientFactory ocf = NcipOkapiClientFactory.createInstance(vertx, config());
+    OkapiClientFactory ocf = OkapiClientFactoryInitializer.createInstance(vertx, config());
     NcipHandler ncipHandler = new NcipHandler(secureStore, ocf);
     Router router = Router.router(vertx);
     router.route().handler(BodyHandler.create());
