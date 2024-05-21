@@ -7,21 +7,8 @@ import io.vertx.ext.web.Router;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.ext.web.handler.BodyHandler;
 
-import static org.folio.edge.core.Constants.SYS_REQUEST_TIMEOUT_MS;
-
 
 public class MainVerticle extends EdgeVerticleHttp {
-
-	  private int reqTimeoutMs;
-
-	  public MainVerticle() {
-	    super();
-	    if (System.getProperty(SYS_REQUEST_TIMEOUT_MS) != null) {
-	        reqTimeoutMs = Integer.parseInt(System.getProperty(SYS_REQUEST_TIMEOUT_MS));
-	      } else {
-	        reqTimeoutMs = 35000;
-	      }
-	  }
 
 	  @Override
 	  public Router defineRoutes() {
@@ -36,5 +23,4 @@ public class MainVerticle extends EdgeVerticleHttp {
             router.route(HttpMethod.GET, "/admin/health").handler(this::handleHealthCheck);
 	    return router;
 	  }
-
 }
