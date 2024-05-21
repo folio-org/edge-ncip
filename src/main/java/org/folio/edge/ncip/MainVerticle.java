@@ -12,7 +12,7 @@ public class MainVerticle extends EdgeVerticleHttp {
 
 	  @Override
 	  public Router defineRoutes() {
-      	OkapiClientFactory ocf = OkapiClientFactoryInitializer.createInstance(vertx, config());
+      	    OkapiClientFactory ocf = OkapiClientFactoryInitializer.createInstance(vertx, config());
 	    NcipHandler ncipHandler = new NcipHandler(secureStore, ocf);
 	    Router router = Router.router(vertx);
 	    router.route().handler(BodyHandler.create());
