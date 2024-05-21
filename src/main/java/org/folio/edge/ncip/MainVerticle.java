@@ -6,13 +6,11 @@ import org.folio.edge.core.utils.OkapiClientFactoryInitializer;
 import io.vertx.ext.web.Router;
 import io.vertx.core.http.HttpMethod;
 import io.vertx.ext.web.handler.BodyHandler;
-import static org.folio.edge.core.Constants.SYS_OKAPI_URL;
 import static org.folio.edge.core.Constants.SYS_REQUEST_TIMEOUT_MS;
 
 
 public class MainVerticle extends EdgeVerticleHttp {
 
-	  final private String okapiUrl = System.getProperty(SYS_OKAPI_URL);
 	  private int reqTimeoutMs;
 
 
