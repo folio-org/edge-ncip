@@ -82,98 +82,98 @@ public class MainVerticleTest {
     logger.info("=== Test the health check endpoint ===");
 
     final Response resp = RestAssured
-      .get("/admin/health")
-      .then()
-      .contentType(TEXT_PLAIN)
-      .statusCode(200)
-      .header(HttpHeaders.CONTENT_TYPE, TEXT_PLAIN)
-      .extract()
-      .response();
+        .get("/admin/health")
+        .then()
+        .contentType(TEXT_PLAIN)
+        .statusCode(200)
+        .header(HttpHeaders.CONTENT_TYPE, TEXT_PLAIN)
+        .extract()
+        .response();
 
     assertEquals("\"OK\"", resp.body().asString());
   }
-  
+
   @Test
   public void failsWhenBadApiKeyProvided() throws Exception {
     logger.info("=== Test request with malformed apiKey ===");
 
     final Response resp = RestAssured
-      .post(String.format("/ncip/"+ badApiKey))
-      .then()
-      .statusCode(401)
-      .extract()
-      .response();
+        .post(String.format("/ncip/" + badApiKey))
+        .then()
+        .statusCode(401)
+        .extract()
+        .response();
     ErrorMessage error = new ErrorMessage(resp.getStatusCode(), resp.asPrettyString());
     logger.info(error.toXml());
     logger.info(error.toJson());
     logger.info(resp.body().asString());
   }
-  
+
   @Test
   public void successWithGoodKey() {
     logger.info("=== Test request with good apiKey ===");
 
     final Response resp = RestAssured
-      .given()
-      .post(String.format("/ncip/"+apiKey))
-      .then()
-      .statusCode(200)
-      .extract()
-      .response();
+        .given()
+        .post(String.format("/ncip/" + apiKey))
+        .then()
+        .statusCode(200)
+        .extract()
+        .response();
     logger.info(resp.body().asString());
   }
 
   @Test
   public void testNciphealthcheck() {
-	    logger.info("=== Test the health check 2 endpoint ===");
+    logger.info("=== Test the health check 2 endpoint ===");
 
-	    final Response resp = RestAssured
-	      .get("/nciphealthcheck?apiKey=" + apiKey)
-	      .then()
-	      .statusCode(200)
-	      .extract()
-	      .response();
+    final Response resp = RestAssured
+        .get("/nciphealthcheck?apiKey=" + apiKey)
+        .then()
+        .statusCode(200)
+        .extract()
+        .response();
   }
 
   @Test
   public void testConfigCheck() {
-	  logger.info("=== Test ncipconfigcheck ===");
-	  final Response resp = RestAssured
-		      .get("/ncipconfigcheck?apiKey=" + apiKey)
-		      .then()
-		      .statusCode(200)
-		      .extract()
-		      .response();
-	  logger.info(resp.asPrettyString());
+    logger.info("=== Test ncipconfigcheck ===");
+    final Response resp = RestAssured
+        .get("/ncipconfigcheck?apiKey=" + apiKey)
+        .then()
+        .statusCode(200)
+        .extract()
+        .response();
+    logger.info(resp.asPrettyString());
   }
 
   @Test
   public void testErrorMessage() {
-	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
+    ErrorMessage errorMessage = new ErrorMessage(200, "ok");
     assertEquals("ok", errorMessage.message);
   }
-  
+
   @Test
   public void testErrorMessagesEquality() {
-	  ErrorMessage errorMessageOrig = new ErrorMessage(500,"bad request");
-	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
+    ErrorMessage errorMessageOrig = new ErrorMessage(500, "bad request");
+    ErrorMessage errorMessage = new ErrorMessage(200, "ok");
     assertEquals("ok", errorMessage.message);
     assertNotEquals(errorMessage, errorMessageOrig);
   }
 
   @Test
   public void testErrorCodeEquality() {
-	  ErrorMessage errorMessageOrig = new ErrorMessage(200,"bad request");
-	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
+    ErrorMessage errorMessageOrig = new ErrorMessage(200, "bad request");
+    ErrorMessage errorMessage = new ErrorMessage(200, "ok");
     assertEquals("ok", errorMessage.message);
     assertNotEquals(errorMessage, errorMessageOrig);
   }
-  
+
   @Test
   public void testErrorMessageEqualityWithNull() {
-	  ErrorMessage errorMessageOrig = new ErrorMessage(200,null);
-	  ErrorMessage errorMessageEasy = ErrorMessage.builder().chargeAmount("bad request").item(200).build();
-	  ErrorMessage errorMessage = new ErrorMessage(200,"ok");
+    ErrorMessage errorMessageOrig = new ErrorMessage(200, null);
+    ErrorMessage errorMessageEasy = ErrorMessage.builder().chargeAmount("bad request").item(200).build();
+    ErrorMessage errorMessage = new ErrorMessage(200, "ok");
     assertNotEquals(errorMessageEasy, errorMessage);
     assertEquals("ok", errorMessage.message);
     assertNotEquals(errorMessage, errorMessageOrig);

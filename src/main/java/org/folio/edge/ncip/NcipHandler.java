@@ -8,9 +8,7 @@ import java.util.concurrent.TimeoutException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 
-import io.vertx.core.http.HttpClientResponse;
 import io.vertx.core.http.HttpHeaders;
-import io.vertx.core.http.HttpServerResponse;
 import io.vertx.ext.web.RoutingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -113,34 +111,6 @@ public class NcipHandler extends Handler {
       finalMsg = "{ code : \"\", message : \"" + message + "\" }";
     }
     return finalMsg;
-  }
-
-  protected void handleProxyResponse(RoutingContext ctx, HttpClientResponse resp) {
-
-    HttpServerResponse serverResponse = ctx.response();
-
-    final StringBuilder body = new StringBuilder();
-    resp.handler(buf -> {
-      body.append(buf);
-    }).endHandler(v -> {
-
-      int statusCode = resp.statusCode();
-      serverResponse.setStatusCode(statusCode);
-
-      String respBody = body.toString();
-
-      String contentType = resp.getHeader(HttpHeaders.CONTENT_TYPE);
-      setContentType(serverResponse, contentType);
-      serverResponse.end(respBody);
-
-    });
-  }
-
-
-  private void setContentType(HttpServerResponse response, String contentType) {
-    if (contentType != null && !contentType.equals("")) {
-      response.putHeader(HttpHeaders.CONTENT_TYPE, contentType);
-    }
   }
 
 }
