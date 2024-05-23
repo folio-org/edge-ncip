@@ -5,7 +5,6 @@ import io.vertx.ext.web.client.HttpResponse;
 import org.folio.edge.core.utils.OkapiClient;
 import io.vertx.core.Handler;
 import io.vertx.core.MultiMap;
-import io.vertx.core.Vertx;
 
 
 
@@ -13,10 +12,6 @@ import io.vertx.core.Vertx;
 public class NcipOkapiClient extends OkapiClient {
 	
 	  	
-	  protected NcipOkapiClient(Vertx vertx, String okapiURL, String tenant, int timeout) {
-		    super(vertx, okapiURL, tenant, timeout);
-	  }
-
 	  public NcipOkapiClient(OkapiClient client) {
 	    super(client);
 	  }

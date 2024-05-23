@@ -11,8 +11,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.folio.edge.core.Handler;
 import org.folio.edge.core.security.SecureStore;
+import org.folio.edge.core.utils.OkapiClientFactory;
 import org.folio.edge.ncip.utils.NcipOkapiClient;
-import org.folio.edge.ncip.utils.NcipOkapiClientFactory;
 import org.folio.edge.core.utils.OkapiClient;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -30,7 +30,7 @@ public class NcipHandler extends Handler {
 		  private static final Logger logger = LogManager.getLogger(NcipHandler.class);
 		  
 		  
-		  public NcipHandler(SecureStore secureStore, NcipOkapiClientFactory ocf) {
+		  public NcipHandler(SecureStore secureStore, OkapiClientFactory ocf) {
 		    super(secureStore, ocf);
 		  }
 		  
