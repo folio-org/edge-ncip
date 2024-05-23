@@ -78,9 +78,9 @@ If truststore parameters need to be populated, truststore_type, truststore_path 
 
 ## Additional information
 
-There will be a single instance of okapi client per OkapiClientFactory and per tenant, 
-which means that this client should never be closed or else there will be runtime errors. 
-To enforce this behaviour, method close() has been removed from OkapiClient class. 
+There will be a single instance of okapi client per OkapiClientFactory and per tenant,
+which means that this client should never be closed or else there will be runtime errors.
+To enforce this behaviour, method close() has been removed from OkapiClient class.
 
 ## Endpoints (you can use either)
 
@@ -111,4 +111,3 @@ and the [Docker image](https://hub.docker.com/r/folioorg/edge-ncip/).
 
 Other [modules](https://dev.folio.org/source-code/#server-side) are described,
 with further FOLIO Developer documentation at [dev.folio.org](https://dev.folio.org/)
-
