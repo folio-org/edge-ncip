@@ -34,18 +34,18 @@ Configuration information is specified in two forms:
 
 ### System Properties
 
-| Property                  | Default             | Description                                                               |
-|---------------------------|---------------------|---------------------------------------------------------------------------|
-| `port`                    | `8081`              | Server port to listen on                                                  |
-| `okapi_url`               | *required*          | Where to find Okapi (URL)                                                 |
-| `secure_store`            | `Ephemeral`         | Type of secure store to use.  Valid: `Ephemeral`, `AwsSsm`, `Vault`       |
-| `secure_store_props`      | `NA`                | Path to a properties file specifying secure store configuration           |
-| `token_cache_ttl_ms`      | `3600000`           | How long to cache JWTs, in milliseconds (ms)                              |
-| `null_token_cache_ttl_ms` | `30000`             | How long to cache login failure (null JWTs), in milliseconds (ms)         |
-| `token_cache_capacity`    | `100`               | Max token cache size                                                      |
-| `log_level`               | `INFO`              | Log4j Log Level                                                           |
-| `request_timeout_ms`      | `30000`             | Request Timeout                                                           |
-| `api_key_sources`         | `PARAM,HEADER,PATH` | Defines the sources (order of precendence) of the API key.                |
+| Property                  | Default             | Description                                                         |
+|---------------------------|---------------------|---------------------------------------------------------------------|
+| `port`                    | `8081`              | Server port to listen on                                            |
+| `okapi_url`               | *required*          | Where to find Okapi (URL)                                           |
+| `secure_store`            | `Ephemeral`         | Type of secure store to use.  Valid: `Ephemeral`, `AwsSsm`, `Vault` |
+| `secure_store_props`      | `NA`                | Path to a properties file specifying secure store configuration     |
+| `token_cache_ttl_ms`      | `3600000`           | How long to cache JWTs, in milliseconds (ms)                        |
+| `null_token_cache_ttl_ms` | `30000`             | How long to cache login failure (null JWTs), in milliseconds (ms)   |
+| `token_cache_capacity`    | `100`               | Max token cache size                                                |
+| `log_level`               | `INFO`              | Log4j Log Level                                                     |
+| `request_timeout_ms`      | `30000`             | Request Timeout                                                     |
+| `api_key_sources`         | `PARAM,HEADER,PATH` | Defines the sources (order of precedence) of the API key.           |
 
 ### System Properties for TLS configuration for Http server
 To configure Transport Layer Security (TLS) for the HTTP server in an edge module, the following configuration parameters should be used.
@@ -78,7 +78,9 @@ If truststore parameters need to be populated, truststore_type, truststore_path 
 
 ## Additional information
 
-There will be a single instance of okapi client per OkapiClientFactory and per tenant, which means that this client should never be closed or else there will be runtime errors. To enforce this behaviour, method close() has been removed from OkapiClient class.
+There will be a single instance of okapi client per OkapiClientFactory and per tenant, 
+which means that this client should never be closed or else there will be runtime errors. 
+To enforce this behaviour, method close() has been removed from OkapiClient class. 
 
 ## Endpoints (you can use either)
 
