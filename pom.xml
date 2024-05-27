@@ -13,7 +13,7 @@
 		</license>
 	</licenses>
 	<properties>
-		<vertx.version>4.4.6</vertx.version>
+		<vertx.version>4.5.7</vertx.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>17</java.version>
@@ -66,7 +66,7 @@
 		<dependency>
 			<groupId>org.folio</groupId>
 			<artifactId>edge-common</artifactId>
-			<version>4.5.1</version>
+			<version>4.7.0</version>
 		</dependency>
 		<dependency>
 			<groupId>args4j</groupId>
@@ -220,6 +220,14 @@
 							<goal>shade</goal>
 						</goals>
 						<configuration>
+							<filters>
+								<filter>
+									<artifact>*:*</artifact>
+									<excludes>
+										<exclude>**/Log4j2Plugins.dat</exclude>
+									</excludes>
+								</filter>
+							</filters>
 							<transformers>
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<manifestEntries>
