@@ -1,3 +1,6 @@
+## 1.10.0 2024-05-29
+ * [EDGNCIP-26](https://folio-org.atlassian.net/browse/EDGNCIP-26) Enhance WebClient TLS Configuration for Secure Connections to OKAPI
+ * [EDGNCIP-27](https://folio-org.atlassian.net/browse/EDGNCIP-27) Enhance HTTP Endpoint Security with TLS and FIPS-140-2 Compliant Cryptography
 ## 1.9.2 2023-10-16
  * [EDGNCIP-25](https://issues.folio.org/browse/EDGNCIP-25) Vert.x 4.4.6
 ## 1.9.0 2023-10-06
