@@ -1,3 +1,5 @@
+## 1.10.0 2024-07-03
+ * [EDGNCIP-29](https://folio-org.atlassian.net/browse/EDGNCIP-29) edge-common 4.7.1: AwsParamStore to support FIPS-approved crypto modules
 ## 1.10.0 2024-05-29
  * [EDGNCIP-26](https://folio-org.atlassian.net/browse/EDGNCIP-26) Enhance WebClient TLS Configuration for Secure Connections to OKAPI
  * [EDGNCIP-27](https://folio-org.atlassian.net/browse/EDGNCIP-27) Enhance HTTP Endpoint Security with TLS and FIPS-140-2 Compliant Cryptography
