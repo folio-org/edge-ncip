@@ -24,7 +24,7 @@ required for the NCIP module itself):
     inventory-storage.items.collection.get
     ui-circulation.settings.overdue-fines-policies
     ui-circulation.settings.lost-item-fees-policies
-    automated-patron-blocks.collection.get
+    patron-blocks.automated-patron-blocks.collection.get
     circulation-storage.circulation-rules.get
     manualblocks.collection.get
     
