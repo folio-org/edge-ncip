@@ -1,3 +1,5 @@
+## 1.10.2 2025-03-12
+ * [FOLREL-650](https://folio-org.atlassian.net/browse/FOLREL-650) Update to Java 21
 ## 1.10.1 2024-07-03
  * [EDGNCIP-29](https://folio-org.atlassian.net/browse/EDGNCIP-29) edge-common 4.7.1: AwsParamStore to support FIPS-approved crypto modules
 ## 1.10.0 2024-05-29
