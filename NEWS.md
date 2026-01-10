@@ -1,3 +1,5 @@
+## 1.10.3 2026-01-10
+ * [EDGNCIP-37](https://folio-org.atlassian.net/browse/EDGNCIP-37) Vertx 4.5.23 fixing Netty vulns
 ## 1.10.2 2025-03-12
  * [FOLREL-650](https://folio-org.atlassian.net/browse/FOLREL-650) Update to Java 21
 ## 1.10.1 2024-07-03
