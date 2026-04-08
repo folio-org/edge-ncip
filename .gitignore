@@ -10,6 +10,8 @@
 # IntelliJ IDEA
 .idea/
 *.iml
+*.iws
+*.ipr
 
 # Eclipse
 .project
@@ -17,7 +19,12 @@
 .settings/
 
 # VS Code
-.vscode/*.log
+.vscode/*
+!.vscode/launch.json
+
+# Editor swap files
+*.swp
+*.swo
 
 # OS files
 .DS_Store
