@@ -1,7 +1,6 @@
 package org.folio.edge.ncip;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 
 import org.junit.Test;
@@ -44,7 +43,7 @@ public class ErrorMessageTest {
 
         assertEquals(baseline, baseline);
         assertNotEquals(null, baseline);
-        assertFalse(baseline.equals("ok"));
+        assertEquals(false, baseline.equals("ok"));
         assertEquals(new ErrorMessage(200, "ok"), baseline);
         assertNotEquals(new ErrorMessage(500, "ok"), baseline);
         assertNotEquals(new ErrorMessage(200, "different"), baseline);
