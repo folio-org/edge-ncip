@@ -5,7 +5,8 @@
             "type": "java",
             "name": "Run edge-ncip (Vert.x)",
             "request": "launch",
-            "mainClass": "org.folio.edge.ncip.Main",
+            "mainClass": "io.vertx.launcher.application.VertxApplication",
+            "args": "org.folio.edge.ncip.MainVerticle",
             "projectName": "edge-ncip",
             "cwd": "${workspaceFolder}",
             "vmArgs": "-Dokapi_url=http://localhost:9130 -Dport=8081 -Dsecure_store=Ephemeral -Dsecure_store_props=src/main/resources/ephemeral.properties"

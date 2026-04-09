@@ -7,7 +7,7 @@ import static org.folio.edge.core.Constants.SYS_REQUEST_TIMEOUT_MS;
 import static org.folio.edge.core.Constants.SYS_SECURE_STORE_PROP_FILE;
 import static org.folio.edge.core.Constants.TEXT_PLAIN;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotEquals;
 import static org.mockito.Mockito.spy;
 import java.util.ArrayList;
 import java.util.List;
@@ -152,33 +152,32 @@ public class MainVerticleTest {
   @Test
   public void testErrorMessage() {
     ErrorMessage errorMessage = new ErrorMessage(200, "ok");
-    assertFalse(errorMessage.equals("ok"));
+    assertNotEquals("ok", errorMessage);
   }
 
   @Test
   public void testErrorMessagesEquality() {
     ErrorMessage errorMessageOrig = new ErrorMessage(500, "bad request");
     ErrorMessage errorMessage = new ErrorMessage(200, "ok");
-    assertFalse(errorMessage.equals("ok"));
-    assertFalse(errorMessage.equals(errorMessageOrig));
+    assertNotEquals("ok", errorMessage);
+    assertNotEquals(errorMessageOrig, errorMessage);
   }
 
   @Test
   public void testErrorCodeEquality() {
     ErrorMessage errorMessageOrig = new ErrorMessage(200, "bad request");
     ErrorMessage errorMessage = new ErrorMessage(200, "ok");
-    assertFalse(errorMessage.equals("ok"));
-    assertFalse(errorMessage.equals(errorMessageOrig));
+    assertNotEquals("ok", errorMessage);
+    assertNotEquals(errorMessageOrig, errorMessage);
   }
 
   @Test
   public void testErrorMessageEqualityWithNull() {
     ErrorMessage errorMessageOrig = new ErrorMessage(200, null);
-    ErrorMessage errorMessageEasy = ErrorMessage.builder().chargeAmount("bad request").item(200).build();
     ErrorMessage errorMessage = new ErrorMessage(200, "ok");
-    assertFalse(errorMessageOrig.equals(errorMessage));
-    assertFalse(errorMessage.equals("ok"));
-    assertFalse(errorMessage.equals(errorMessageOrig));
+    assertNotEquals(errorMessage, errorMessageOrig);
+    assertNotEquals("ok", errorMessage);
+    assertNotEquals(errorMessageOrig, errorMessage);
   }
 
 }
