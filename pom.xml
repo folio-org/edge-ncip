@@ -13,7 +13,7 @@
 		</license>
 	</licenses>
 	<properties>
-		<vertx.version>4.5.23</vertx.version>
+		<vertx.version>5.0.8</vertx.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>21</java.version>
@@ -51,6 +51,10 @@
 			<artifactId>vertx-web</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>io.vertx</groupId>
+			<artifactId>vertx-launcher-application</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>
 			<version>0.6.0</version>
@@ -66,7 +70,7 @@
 		<dependency>
 			<groupId>org.folio</groupId>
 			<artifactId>edge-common</artifactId>
-			<version>4.7.1</version>
+			<version>5.0.0</version>
 		</dependency>
 		<dependency>
 			<groupId>args4j</groupId>
@@ -232,7 +236,7 @@
 								<transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
 									<manifestEntries>
 										<addClasspath>true</addClasspath>
-										<Main-Class>io.vertx.core.Launcher</Main-Class>
+										<Main-Class>io.vertx.launcher.application.VertxApplication</Main-Class>
 										<Main-Verticle>org.folio.edge.ncip.MainVerticle</Main-Verticle>
 									</manifestEntries>
 								</transformer>
