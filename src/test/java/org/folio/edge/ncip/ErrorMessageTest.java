@@ -3,7 +3,6 @@ package org.folio.edge.ncip;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -43,13 +42,13 @@ public class ErrorMessageTest {
     public void equalsHandlesCommonBranches() {
         ErrorMessage baseline = new ErrorMessage(200, "ok");
 
-        assertTrue(baseline.equals(baseline));
+        assertEquals(baseline, baseline);
         assertNotEquals(null, baseline);
         assertFalse(baseline.equals("ok"));
-        assertTrue(baseline.equals(new ErrorMessage(200, "ok")));
+        assertEquals(new ErrorMessage(200, "ok"), baseline);
         assertNotEquals(new ErrorMessage(500, "ok"), baseline);
         assertNotEquals(new ErrorMessage(200, "different"), baseline);
-        assertTrue(new ErrorMessage(200, null).equals(new ErrorMessage(200, null)));
+        assertEquals(new ErrorMessage(200, null), new ErrorMessage(200, null));
         assertNotEquals(new ErrorMessage(200, "value"), new ErrorMessage(200, null));
     }
 }
