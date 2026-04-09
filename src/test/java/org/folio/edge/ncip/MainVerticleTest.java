@@ -7,6 +7,7 @@ import static org.folio.edge.core.Constants.SYS_REQUEST_TIMEOUT_MS;
 import static org.folio.edge.core.Constants.SYS_SECURE_STORE_PROP_FILE;
 import static org.folio.edge.core.Constants.TEXT_PLAIN;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
 import static org.mockito.Mockito.spy;
 import java.util.ArrayList;
@@ -152,14 +153,14 @@ public class MainVerticleTest {
   @Test
   public void testErrorMessage() {
     ErrorMessage errorMessage = new ErrorMessage(200, "ok");
-    assertNotEquals("ok", errorMessage);
+    assertFalse(errorMessage.equals("ok"));
   }
 
   @Test
   public void testErrorMessagesEquality() {
     ErrorMessage errorMessageOrig = new ErrorMessage(500, "bad request");
     ErrorMessage errorMessage = new ErrorMessage(200, "ok");
-    assertNotEquals("ok", errorMessage);
+    assertFalse(errorMessage.equals("ok"));
     assertNotEquals(errorMessageOrig, errorMessage);
   }
 
@@ -167,7 +168,7 @@ public class MainVerticleTest {
   public void testErrorCodeEquality() {
     ErrorMessage errorMessageOrig = new ErrorMessage(200, "bad request");
     ErrorMessage errorMessage = new ErrorMessage(200, "ok");
-    assertNotEquals("ok", errorMessage);
+    assertFalse(errorMessage.equals("ok"));
     assertNotEquals(errorMessageOrig, errorMessage);
   }
 
@@ -176,7 +177,7 @@ public class MainVerticleTest {
     ErrorMessage errorMessageOrig = new ErrorMessage(200, null);
     ErrorMessage errorMessage = new ErrorMessage(200, "ok");
     assertNotEquals(errorMessage, errorMessageOrig);
-    assertNotEquals("ok", errorMessage);
+    assertFalse(errorMessage.equals("ok"));
     assertNotEquals(errorMessageOrig, errorMessage);
   }
 
