@@ -1,3 +1,6 @@
+## 1.11.0 2026-04-10
+ * [EDGNCIP-39](https://folio-org.atlassian.net/browse/EDGNCIP-39) Setup dependabot for your module
+ * [EDGNCIP-36](https://folio-org.atlassian.net/browse/EDGNCIP-36) Upgrade module to Vert.x 5.0
 ## 1.10.3 2026-01-10
  * [EDGNCIP-37](https://folio-org.atlassian.net/browse/EDGNCIP-37) Vertx 4.5.23 fixing Netty vulns
 ## 1.10.2 2025-03-12
