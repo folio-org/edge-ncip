@@ -1,3 +1,5 @@
+## 1.11.1 2026-06-02
+ * [EDGNCIP-38](https://folio-org.atlassian.net/browse/EDGNCIP-38) Use GitHub Workflows for Maven
 ## 1.11.0 2026-04-10
  * [EDGNCIP-39](https://folio-org.atlassian.net/browse/EDGNCIP-39) Setup dependabot for your module
  * [EDGNCIP-36](https://folio-org.atlassian.net/browse/EDGNCIP-36) Upgrade module to Vert.x 5.0
