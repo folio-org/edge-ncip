@@ -1,3 +1,5 @@
+## 1.11.3 2026-07-08
+ * Additional change for EDGNCIP-42.  Updated the edge-common version to 5.1.1.
 ## 1.11.2 2026-07-07
  * [EDGNCIP-42](https://folio-org.atlassian.net/browse/EDGNCIP-42) edge-ncip v1.11.1 deploys on Trillium TLS BugFest cluster but all tests fail with HTTP 500 errors
 ## 1.11.1 2026-06-02
