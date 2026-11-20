@@ -1,3 +1,6 @@
+## 1.12.0 IN PROGRESS
+ * [EDGNCIP-44](https://folio-org.atlassian.net/browse/EDGNCIP-44) Add DeployConfig.json (ADR-0013 Configuration Management)
+
 ## 1.11.3 2026-07-08
  * Additional change for EDGNCIP-42.  Updated the edge-common version to 5.1.1.
 ## 1.11.2 2026-07-07

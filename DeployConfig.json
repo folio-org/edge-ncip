@@ -1,0 +1,157 @@
+{
+  "description": "edge-ncip deployment configuration template (see ADR-0013, Module configuration management).",
+  "moduleDefaults": {
+    "resources": [
+      {
+        "name": "cpu",
+        "value": "64",
+        "description": "CPU request/limit for the edge-ncip container"
+      },
+      {
+        "name": "memory",
+        "value": "1024",
+        "description": "Memory hard limit for the edge-ncip container (MiB)"
+      },
+      {
+        "name": "memoryReservation",
+        "value": "896",
+        "description": "Memory reservation (soft limit) for the edge-ncip container (MiB)"
+      }
+    ],
+    "java": [
+      {
+        "name": "xmx",
+        "value": "768m",
+        "description": "Maximum Java heap size"
+      },
+      {
+        "name": "MaxMetaspaceSize",
+        "value": "128m",
+        "description": "Maximum Java metaspace size"
+      },
+      {
+        "name": "MetaspaceSize",
+        "value": "88m",
+        "description": "Initial Java metaspace size"
+      }
+    ],
+    "deployment": {
+      "isHaSupported": true,
+      "replicasRecommendedCount": 2,
+      "description": "edge-ncip is stateless and supports multiple replicas. Adjust replicas based on expected NCIP request volume."
+    },
+    "kong": {
+      "timeouts": {
+        "connect": "60s",
+        "send": "60s",
+        "read": "120s"
+      },
+      "description": "Read timeout set to 120s so slow NCIP responses are not cut off."
+    },
+    "EnvVars": [
+      {
+        "name": "ENV",
+        "value": null,
+        "description": "Name of the deployment environment.",
+        "type": "CONFIG",
+        "essential": true
+      },
+      {
+        "name": "JAVA_OPTIONS",
+        "value": "-Dport=8081 -Dlog_level=INFO -Drequest_timeout_ms=30000 -Dtoken_cache_ttl_ms=300000 -Dnull_token_cache_ttl_ms=30000 -Dtoken_cache_capacity=25",
+        "description": "JVM options carrying the module's system properties: port, log level, request timeout in milliseconds, and the JWT token cache settings.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "OKAPI_URL",
+        "value": null,
+        "description": "URL of the gateway the edge module calls, supplied as -Dokapi_url in JAVA_OPTIONS.",
+        "type": "CONFIG",
+        "essential": true
+      },
+      {
+        "name": "SECURE_STORE",
+        "value": "Ephemeral",
+        "description": "Secure store type for institutional user credentials (Ephemeral, AwsSsm or Vault), supplied as -Dsecure_store in JAVA_OPTIONS.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "SECURE_STORE_PROPS",
+        "value": null,
+        "description": "Path to a properties file with the secure store configuration, supplied as -Dsecure_store_props in JAVA_OPTIONS.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "SPRING_SSL_BUNDLE_JKS_WEBSERVER_KEYSTORE_TYPE",
+        "value": null,
+        "description": "Keystore type for the HTTP server TLS, such as JKS, PKCS12 or BCFKS; set to enable server TLS.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "SPRING_SSL_BUNDLE_JKS_WEBSERVER_KEYSTORE_LOCATION",
+        "value": null,
+        "description": "Keystore file location for the HTTP server TLS.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "SPRING_SSL_BUNDLE_JKS_WEBSERVER_KEYSTORE_PASSWORD",
+        "value": null,
+        "description": "Keystore password for the HTTP server TLS.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "SPRING_SSL_BUNDLE_JKS_WEBSERVER_KEY_ALIAS",
+        "value": null,
+        "description": "Key alias within the server keystore.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "SPRING_SSL_BUNDLE_JKS_WEBSERVER_KEY_PASSWORD",
+        "value": null,
+        "description": "Password of the server key alias, if the key is protected.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "FOLIO_CLIENT_TLS_ENABLED",
+        "value": false,
+        "description": "Enables TLS for the web client that calls FOLIO.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "FOLIO_CLIENT_TLS_TRUSTSTORETYPE",
+        "value": null,
+        "description": "Truststore type for the web client, used when FOLIO_CLIENT_TLS_ENABLED is true.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "FOLIO_CLIENT_TLS_TRUSTSTOREPATH",
+        "value": null,
+        "description": "Truststore file location for the web client, used when FOLIO_CLIENT_TLS_ENABLED is true.",
+        "type": "CONFIG",
+        "essential": false
+      },
+      {
+        "name": "FOLIO_CLIENT_TLS_TRUSTSTOREPASSWORD",
+        "value": null,
+        "description": "Truststore password for the web client, used when FOLIO_CLIENT_TLS_ENABLED is true.",
+        "type": "CONFIG",
+        "essential": false
+      }
+    ]
+  },
+  "sidecarDefaults": {
+    "resources": [],
+    "java": [],
+    "EnvVars": []
+  }
+}
